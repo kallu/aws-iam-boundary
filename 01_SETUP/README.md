@@ -1,7 +1,8 @@
 
-# Please follow below instructions to setup & cleanup the lab from [command line](#cmdline) or [AWS console](#console).
 
-## <a name="cmdline"></a>Using command line
+## Here are the instructions for setting up the workshop environment either from the [command line](#cmdline) using AWS CLI or the [AWS console](#console). In this workshop, we will utilize IAM resources and two VPCs that do not incur any cost. However, the IAM user password will be stored in AWS Secrets Manager and will incur a [minimal cost](https://aws.amazon.com/secrets-manager/pricing/). Please ensure that you follow the cleanup instructions after completing the workshop.
+
+# <a name="cmdline"></a>Using command line
 
 ### Lab setup
 
@@ -54,7 +55,7 @@ $ aws cloudformation describe-stacks --stack-name ${STACK}
 An error occurred (ValidationError) when calling the DescribeStacks operation: Stack with id walled-garden-lab does not exist]
 ```
 
-## <a name="console"></a>Using AWS console
+# <a name="console"></a>Using AWS console
 
 ### Lab setup
 
