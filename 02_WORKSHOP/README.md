@@ -115,7 +115,7 @@ With this theoretical background we are ready to get started with lab exercise .
 
 ## Lab exercise
 
-Login to your AWS console with username and password you got from [lab setup](../01_LABSETUP/README.md). The Cloudformation template created you 2 VPCs. VPC1 has ```owner=YOUR_IAM_USERNAME``` (or more preciesly value of your IAM users owner-tag) tag on it. VPC2 is tagged to another owner.
+Login to your AWS console with username and password you got from [workshop setup](../01_SETUP/README.md). The Cloudformation template created you 2 VPCs. VPC1 has ```owner=YOUR_IAM_USERNAME``` (or more preciesly value of your IAM users owner-tag) tag on it. VPC2 is tagged to another owner.
 
 ![VPC1 and VPC2 were created and tagged as part of lab setup](images/10-YourVPCs.png)
 
