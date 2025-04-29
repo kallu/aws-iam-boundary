@@ -27,7 +27,7 @@ Definition of walled garden can now be broken down into 5 requirements and imple
 ### Limit access to resources owned by given user, group or role (1)
 ### Deny hijacking resources owned by others (2)
 
-The First ```Allow``` statement will scope boundary policy to include only resources that  have no ```owner``` -tag assigned (see above) or it has the same value as your effective IAM principal has. In this lab it will be ```owner=user1```. This implements both ownership and denies resource hijacking, not allowing re-tagging.
+The First ```Allow``` statement will scope boundary policy to include only resources that  have no ```owner``` -tag assigned (see above) or it has the same value as your effective IAM principal has. In this workshop it will be ```owner=user1```. This implements both ownership and denies resource hijacking, not allowing re-tagging.
 
 NOTE: ```${aws::PrincipalTag/owner}``` is reference to active IAM pricipal ```owner``` -tag value.
 
@@ -66,7 +66,7 @@ Denying IAM modifications of resources that are not prefixed with your ```owner`
 
 ### Deny modification or removal of permission boundary policy (4)
 
-All above would be useless unless there is a way to protect the permission boundary itself. Boundary policy created in the lab setup has a name derived from the stack name you created. Once the permission boundary is attached to IAM principal, it can not be modified by the principal.
+All above would be useless unless there is a way to protect the permission boundary itself. Boundary policy created in the workshop setup has a name derived from the stack name you created. Once the permission boundary is attached to IAM principal, it can not be modified by the principal.
 
 ```
           - Sid: 'DenyBoundaryModification'
@@ -111,13 +111,13 @@ Finally we must deny actions to create new users or roles if the same permission
                 'iam:PermissionsBoundary': !Sub "arn:aws:iam::${AWS::AccountId}:policy/${AWS::StackName}-boundary"
 ```
 
-With this theoretical background we are ready to get started with lab exercise ...
+With this theoretical background we are ready to get started with workshop exercise ...
 
 ## Lab exercise
 
 Login to your AWS console with username and password you got from [workshop setup](../01_SETUP/README.md). The Cloudformation template created you 2 VPCs. VPC1 has ```owner=YOUR_IAM_USERNAME``` (or more preciesly value of your IAM users owner-tag) tag on it. VPC2 is tagged to another owner.
 
-![VPC1 and VPC2 were created and tagged as part of lab setup](images/10-YourVPCs.png)
+![VPC1 and VPC2 were created and tagged as part of workshop setup](images/10-YourVPCs.png)
 
 Now we are ready to start testing if 5 requirements above were implemented. Lets start with 
 
@@ -147,7 +147,7 @@ If you try changing existing ```owner``` -tag value, you will get an error. In a
 
 ![You are not allowd to retag VPC2 to yourself](images/15-ReTag.png)
 
-Above 2 requirements create borders of walled garden. Remaining of this lab will demonstrate it isn't possible to remove or alter those borders even though you are able to create your own IAM policies and pricipals.
+Above 2 requirements create borders of walled garden. Remaining of this workshop will demonstrate it isn't possible to remove or alter those borders even though you are able to create your own IAM policies and pricipals.
 
 Saying your IAM user has the same ```owner```-tag as your IAM user is circular definition that is always true. So you should be able to edit it ...
 ![owner-tag of IAM user](images/20-IAMUser.png)
@@ -213,8 +213,8 @@ But if you create garden-user-demo-group, you can attach the user to it as now b
 
 Now you have tested all 5 requirement defining the walled garden are implemented in IAM policy statements show in the beginning. You can also create new IAM principals and policies freely, as long as, you attach the same permission boundary as you have, and have them within your namespace. This allows multiple users/teams, with admin like permissions, sharing an AWS account and protect their own resources using tags.
 
-When you are done with this lab, please remember to clean-up the resources you created. First delete any IAM users and groups you created manually and then follow [the instructions to delete lab setup](../01_SETUP/README.md).
+When you are done with this workshop, please remember to clean-up the resources you created. First delete any IAM users and groups you created manually and then follow [the instructions to delete workshop setup](../01_SETUP/README.md).
 
 ## Extra credit
 
-While this lab was about showing how multiple IAM users could operate on shared account with admin like permissions, you could apply the same pattern to automated CI/CD pipelines when you have multiple pipelines deploying to the same account and want to be sure each pipeline is managing only it's own part of infrastructure.
+While this workshop was about showing how multiple IAM users could operate on shared account with admin like permissions, you could apply the same pattern to automated CI/CD pipelines when you have multiple pipelines deploying to the same account and want to be sure each pipeline is managing only it's own part of infrastructure.
