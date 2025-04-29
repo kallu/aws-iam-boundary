@@ -6,7 +6,7 @@
 
 ### Lab setup
 
-Deploy a cloudformation stack from `iamboundary.yaml` -template
+* Deploy a cloudformation stack from `iamboundary.yaml` -template
 
 ```
 $ STACK=walled-garden-lab
@@ -17,7 +17,7 @@ Waiting for stack create/update to complete
 Successfully created/updated stack - walled-garden-lab
 ```
 
-Get ARN for credentials stored in Secrets Manager
+* Get ARN for credentials stored in Secrets Manager
 
 ```
 $ aws cloudformation describe-stacks --stack-name ${STACK} --query 'Stacks[].Outputs'
@@ -32,7 +32,7 @@ $ aws cloudformation describe-stacks --stack-name ${STACK} --query 'Stacks[].Out
 ]
 ```
 
-Note ARN from `OutputValue` and supply it as `--secret-id`
+* Note ARN from `OutputValue` and supply it as `--secret-id`
 
 ```
 $ aws secretsmanager get-secret-value --query 'SecretString' --output text \
@@ -40,7 +40,7 @@ $ aws secretsmanager get-secret-value --query 'SecretString' --output text \
 {"password":"THIS-IS-YOUR-PASSWORD","username":"walled-garden-lab-user"}
 ```
 
-Note `username` and `password` from above. Username is `${STACK}-user`.
+* Note `username` and `password` from above. Username is `${STACK}-user`.
 
 ### Lab cleanup
 
