@@ -1,4 +1,4 @@
-# IAM walled garden demo
+# AWS IAM Permission Boundary Workshop
 
 ## Brief history of shared AWS accounts
 
