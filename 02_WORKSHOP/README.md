@@ -213,7 +213,7 @@ But if you create garden-user-demo-group, you can attach the user to it as now b
 
 Now you have tested all 5 requirement defining the walled garden are implemented in IAM policy statements show in the beginning. You can also create new IAM principals and policies freely, as long as, you attach the same permission boundary as you have, and have them within your namespace. This allows multiple users/teams, with admin like permissions, sharing an AWS account and protect their own resources using tags.
 
-When you are done with this lab, please remember to clean-up the resources you created. First delete any IAM users and groups you created manually and then follow [the instructions to delete lab setup](../01_LABSETUP/README.md).
+When you are done with this lab, please remember to clean-up the resources you created. First delete any IAM users and groups you created manually and then follow [the instructions to delete lab setup](../01_SETUP/README.md).
 
 ## Extra credit
 
