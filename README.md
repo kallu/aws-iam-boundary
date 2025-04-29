@@ -9,7 +9,7 @@ The same approach can be applied for isolating multiple CI/CD pipelines deployin
 ### Content
 
 * [01_SETUP](01_SETUP) step-by-step instructions for workshop environment setup and cleanup
-* [02_WORKSHOP](02_WORKSHOP) theoretical background and workshop instructions for workshop execersise
+* [02_WORKSHOP](02_WORKSHOP) theoretical background and instructions for workshop execersise
 
  
 
